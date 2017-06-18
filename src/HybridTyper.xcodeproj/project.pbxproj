@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7E3D38C10F8AC7CD617F3C8 /* Pods_HybridTyper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331B20D0915D32863FBDD1B6 /* Pods_HybridTyper.framework */; };
 		EE9EE4E21EF37D1900F5245B /* InputListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EE4E11EF37D1900F5245B /* InputListener.swift */; };
 		EED4F8971EF3610B0011CBEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED4F8961EF3610B0011CBEF /* AppDelegate.swift */; };
 		EED4F8991EF3610B0011CBEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED4F8981EF3610B0011CBEF /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		331B20D0915D32863FBDD1B6 /* Pods_HybridTyper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HybridTyper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52064AF454C0E4C51E4F2A4C /* Pods-HybridTyper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HybridTyper.release.xcconfig"; path = "Pods/Target Support Files/Pods-HybridTyper/Pods-HybridTyper.release.xcconfig"; sourceTree = "<group>"; };
+		948FB69500F841EE7FDEB6DA /* Pods-HybridTyper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HybridTyper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HybridTyper/Pods-HybridTyper.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9EE4E11EF37D1900F5245B /* InputListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputListener.swift; sourceTree = "<group>"; };
 		EED4F8931EF3610B0011CBEF /* HybridTyper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HybridTyper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED4F8961EF3610B0011CBEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E3D38C10F8AC7CD617F3C8 /* Pods_HybridTyper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B7379380854715CADB86D07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				948FB69500F841EE7FDEB6DA /* Pods-HybridTyper.debug.xcconfig */,
+				52064AF454C0E4C51E4F2A4C /* Pods-HybridTyper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7784A84E50DD1B727AAAF605 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				331B20D0915D32863FBDD1B6 /* Pods_HybridTyper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EED4F88A1EF3610B0011CBEF = {
 			isa = PBXGroup;
 			children = (
 				EED4F8951EF3610B0011CBEF /* HybridTyper */,
 				EED4F8941EF3610B0011CBEF /* Products */,
+				3B7379380854715CADB86D07 /* Pods */,
+				7784A84E50DD1B727AAAF605 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EED4F8A21EF3610B0011CBEF /* Build configuration list for PBXNativeTarget "HybridTyper" */;
 			buildPhases = (
+				CB8C278B1268B6C0F4E4076E /* [CP] Check Pods Manifest.lock */,
 				EED4F88F1EF3610B0011CBEF /* Sources */,
 				EED4F8901EF3610B0011CBEF /* Frameworks */,
 				EED4F8911EF3610B0011CBEF /* Resources */,
+				392994931DF16CDBD9D80EA9 /* [CP] Embed Pods Frameworks */,
+				FE20938CD9DD625098BA7C1F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,6 +161,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		392994931DF16CDBD9D80EA9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HybridTyper/Pods-HybridTyper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB8C278B1268B6C0F4E4076E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE20938CD9DD625098BA7C1F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HybridTyper/Pods-HybridTyper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EED4F88F1EF3610B0011CBEF /* Sources */ = {
@@ -255,6 +330,7 @@
 		};
 		EED4F8A31EF3610B0011CBEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 948FB69500F841EE7FDEB6DA /* Pods-HybridTyper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -272,6 +348,7 @@
 		};
 		EED4F8A41EF3610B0011CBEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52064AF454C0E4C51E4F2A4C /* Pods-HybridTyper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
