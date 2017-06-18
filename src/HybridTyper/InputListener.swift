@@ -21,14 +21,19 @@ final class InputListener {
     }
     
     private func onKeyDown(_ event: NSEvent) {
-        print("Event: \(event)")
+//        print("Event: \(event)")
         
         guard let input = event.characters else {
             NSLog("There were no characters in the input")
             return
         }
         
+        guard event.keyCode != CGKeyCode(kVK_Delete) else {
+            return
+        }
+        
         word.append(input)
+        print(word)
         
         if event.keyCode == CGKeyCode(kVK_Space) {
             let modifiedWord = word
