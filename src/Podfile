@@ -6,4 +6,5 @@ target 'HybridTyper' do
   use_frameworks!
 
   # Pods for HybridTyper
+  pod 'SwiftLint'
 end
