@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E7E3D38C10F8AC7CD617F3C8 /* Pods_HybridTyper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331B20D0915D32863FBDD1B6 /* Pods_HybridTyper.framework */; };
 		EE9EE4E21EF37D1900F5245B /* InputListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EE4E11EF37D1900F5245B /* InputListener.swift */; };
+		EEAFFE2F1F0203810001D700 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = EEAFFE2E1F0203810001D700 /* Resources */; };
 		EED4F8971EF3610B0011CBEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED4F8961EF3610B0011CBEF /* AppDelegate.swift */; };
 		EED4F8991EF3610B0011CBEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED4F8981EF3610B0011CBEF /* ViewController.swift */; };
 		EED4F89B1EF3610B0011CBEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EED4F89A1EF3610B0011CBEF /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		52064AF454C0E4C51E4F2A4C /* Pods-HybridTyper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HybridTyper.release.xcconfig"; path = "Pods/Target Support Files/Pods-HybridTyper/Pods-HybridTyper.release.xcconfig"; sourceTree = "<group>"; };
 		948FB69500F841EE7FDEB6DA /* Pods-HybridTyper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HybridTyper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HybridTyper/Pods-HybridTyper.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9EE4E11EF37D1900F5245B /* InputListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputListener.swift; sourceTree = "<group>"; };
+		EEAFFE2E1F0203810001D700 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		EED4F8931EF3610B0011CBEF /* HybridTyper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HybridTyper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED4F8961EF3610B0011CBEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EED4F8981EF3610B0011CBEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		EED4F8951EF3610B0011CBEF /* HybridTyper */ = {
 			isa = PBXGroup;
 			children = (
+				EEAFFE2E1F0203810001D700 /* Resources */,
 				EED4F8961EF3610B0011CBEF /* AppDelegate.swift */,
 				EED4F8A51EF36FC10011CBEF /* KeyboardSimulator.swift */,
 				EED4F8981EF3610B0011CBEF /* ViewController.swift */,
@@ -158,6 +161,7 @@
 			files = (
 				EED4F89B1EF3610B0011CBEF /* Assets.xcassets in Resources */,
 				EED4F89E1EF3610B0011CBEF /* Main.storyboard in Resources */,
+				EEAFFE2F1F0203810001D700 /* Resources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

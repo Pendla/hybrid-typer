@@ -11,7 +11,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Hide the initial window
         NSApplication.shared().windows.last?.close()
 
+        NSLog("Preparing and loading")
         createStatusBar()
+        loadDictionary(withName: "swedish")
+    }
+
+    private func loadDictionary(withName name: String) {
+        let dictionaryFolder = "Resources/Dictionaries"
+        guard let path = Bundle.main.path(forResource: name, ofType: "hybdic", inDirectory: dictionaryFolder) else {
+            NSLog("Couldn't find dictionary")
+            return
+        }
+
+        NSLog("Loading dictionary at %@", path)
+
+        do {
+            let data = try String(contentsOfFile: path, encoding: .utf8)
+            let words = data.components(separatedBy: .newlines)
+
+            for word in words {
+                inputListener.dictionary.insert(word)
+            }
+            NSLog("Finished loading dictionary")
+        } catch {
+            print(error)
+        }
     }
 
     private func createStatusBar() {
@@ -29,6 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                      keyEquivalent: "q")
 
         statusItem.menu = menu
+        
+        NSLog("Finished loading status bar")
     }
 
     func openWindow() {

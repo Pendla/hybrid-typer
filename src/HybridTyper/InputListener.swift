@@ -9,6 +9,8 @@ final class InputListener {
     static let shared = InputListener()
     let keyboardSimulator = KeyboardSimulator()
 
+    var dictionary = Set<String>()
+
     private var word: String = ""
 
     private init() {
@@ -21,8 +23,6 @@ final class InputListener {
     }
 
     private func onKeyDown(_ event: NSEvent) {
-//        print("Event: \(event)")
-
         guard let input = event.characters else {
             NSLog("There were no characters in the input")
             return
@@ -31,9 +31,6 @@ final class InputListener {
         guard event.keyCode != CGKeyCode(kVK_Delete) else {
             return
         }
-
-        word.append(input)
-        print(word)
 
         if event.keyCode == CGKeyCode(kVK_Space) {
             let modifiedWord = word
@@ -44,13 +41,18 @@ final class InputListener {
                 .replacingOccurrences(of: ";", with: "ö")
                 .replacingOccurrences(of: ":", with: "Ö")
 
-            // TODO If word is in dictionary
-            if modifiedWord != word {
-                keyboardSimulator.delete(backwards: true, multiplier: word.characters.count)
+            print(dictionary.contains(modifiedWord))
+            print(modifiedWord.characters.count)
+
+            if modifiedWord != word && dictionary.contains(modifiedWord.replacingOccurrences(of: ".", with: "")) {
+                keyboardSimulator.delete(backwards: true, multiplier: word.characters.count + 1)
                 keyboardSimulator.paste(word: modifiedWord)
+                keyboardSimulator.pressKey(withKeyCode: CGKeyCode(kVK_Space))
             }
 
             word = ""
+        } else {
+            word.append(input)
         }
     }
 }
