@@ -12,20 +12,20 @@ class WordHelper {
     convenience init(withDictionaryPath path: String) {
         NSLog("Loading dictionary at %@", path)
 
-        var dictionary = Set<String>()
+        var temporaryDictionary = Set<String>()
         do {
             let data = try String(contentsOfFile: path, encoding: .utf8)
             let words = data.components(separatedBy: .newlines)
 
             for word in words {
-                dictionary.insert(word)
+                temporaryDictionary.insert(word)
             }
-            NSLog("Finished loading dictionary")
+            NSLog("Finished loading dictionary -- %@ words read", temporaryDictionary.count.description)
         } catch {
             NSLog("ERROR: %@", error as NSError)
         }
 
-        self.init(withDictionary: dictionary)
+        self.init(withDictionary: temporaryDictionary)
     }
 
     func convert(word: String) -> String {
@@ -38,7 +38,7 @@ class WordHelper {
     }
 
     func inDictionary(word: String) -> Bool {
-        return dictionary.contains(word)
+        return dictionary.contains(word.replacingOccurrences(of: " ", with: ""))
     }
 
     func shouldReplace(word originalWord: String, withWord modifiedWord: String) -> Bool {

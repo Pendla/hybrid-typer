@@ -5,7 +5,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
 
-    var inputManager: InputManager
+    var inputManager: InputManager!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Hide the initial window
