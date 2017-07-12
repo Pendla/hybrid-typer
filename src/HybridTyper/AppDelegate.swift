@@ -5,37 +5,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
 
-    let inputListener: InputListener = InputListener.shared
+    var inputManager: InputManager
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Hide the initial window
         NSApplication.shared().windows.last?.close()
 
         NSLog("Preparing and loading")
-        createStatusBar()
-        loadDictionary(withName: "swedish")
-    }
 
-    private func loadDictionary(withName name: String) {
         let dictionaryFolder = "Resources/Dictionaries"
-        guard let path = Bundle.main.path(forResource: name, ofType: "hybdic", inDirectory: dictionaryFolder) else {
+        guard let path = Bundle.main.path(forResource: "swedish", ofType: "hybdic", inDirectory: dictionaryFolder) else {
             NSLog("Couldn't find dictionary")
             return
         }
 
-        NSLog("Loading dictionary at %@", path)
-
-        do {
-            let data = try String(contentsOfFile: path, encoding: .utf8)
-            let words = data.components(separatedBy: .newlines)
-
-            for word in words {
-                inputListener.dictionary.insert(word)
-            }
-            NSLog("Finished loading dictionary")
-        } catch {
-            print(error)
-        }
+        inputManager = InputManager(withDictionaryPath: path)
+        createStatusBar()
     }
 
     private func createStatusBar() {

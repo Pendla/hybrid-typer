@@ -18,7 +18,10 @@ class KeyboardSimulator {
         events = [CGKeyCode: KeyboardButton]()
     }
 
-    func paste(word: String) {
+    /**
+ 
+     */
+    func insert(word: String) {
         guard let key = event(withVirtualKey: 0) else {
             return
         }
@@ -72,7 +75,18 @@ class KeyboardSimulator {
     }
 
     /**
+         khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn
+         kjnsdkfjnsdkjfn khjbnsdfkjnsdjfn kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjnsdkfjnsdkjfnsdfjksndfkjnsdf
+         kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjsndfkjsdfkjnsdf
+         jknsdfkjnsdkfjnsd khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn
+         kjnsdkfjnsdkjfn khjbnsdfkjnsdjfn kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjnsdkfjnsdkjfnsdfjksndfkjnsdf
+         kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjsndfkjsdfkjnsdf
+         jknsdfkjnsdkfjnsdkhjbnsdfkjnsdjfn khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn khjbnsdfkjnsdjfn
+         kjnsdkfjnsdkjfn khjbnsdfkjnsdjfn kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjnsdkfjnsdkjfnsdfjksndfkjnsdf
+         kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjnsdkfjnsdkjfnsdfjksndfkjnsdf kjsndfkjsdfkjnsdf
+         jknsdfkjnsdkfjnsd
      
+        @param name description
      */
     private func event(withVirtualKey key: CGKeyCode) -> KeyboardButton? {
         if let event = events[key] {
@@ -92,6 +106,14 @@ class KeyboardSimulator {
             events[key] = KeyboardButton(hold: hold, release: release)
             return events[key]
         }
+    }
+
+    func replace(word oldWord: String, withWord newWord: String) {
+        // Remove the old word by deleting the number of characters in the word
+        delete(backwards: true, multiplier: oldWord.characters.count)
+
+        // Write out the new word by chunk insertion (makes things faster than writing out every character)
+        insert(word: newWord)
     }
 
 }
