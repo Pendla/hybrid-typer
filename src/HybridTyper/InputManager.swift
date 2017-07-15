@@ -2,7 +2,7 @@ import Cocoa
 import Carbon
 
 class InputManager {
-    
+
     let keyboardSimulator = KeyboardSimulator()
 
     var wordHelper: WordHelper
@@ -19,6 +19,8 @@ class InputManager {
     }
 
     private func handleKeyDown(_ event: NSEvent) {
+        getActiveInputPosition()
+
         guard let input = event.characters else {
             NSLog("There were no characters in the input")
             return
@@ -58,7 +60,40 @@ class InputManager {
 
             NSLog("active word: %@", word)
         }
+    }
 
+    func getActiveInputPosition() -> Int? {
+        // swiftlint:disable force_cast
+        let activeElement = AXUIElementCreateSystemWide()
+
+        var focusedApplication: AnyObject?
+        var error = AXUIElementCopyAttributeValue(activeElement,
+                                                  kAXFocusedApplicationAttribute as CFString,
+                                                  &focusedApplication)
+
+        guard error == .success else { return nil }
+
+        var focusedElement: AnyObject?
+        error = AXUIElementCopyAttributeValue(focusedApplication as! AXUIElement,
+                                              kAXFocusedUIElementAttribute as CFString,
+                                              &focusedElement)
+
+        guard error == .success else { return nil }
+
+        var position: AnyObject?
+        error = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement,
+                                              kAXNumberOfCharactersAttribute as CFString,
+                                              &position)
+
+        guard error == .success else { return nil }
+
+        let pointer = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+        let success = AXValueGetValue(position as! AXValue, AXValueGetType(position as! AXValue), pointer)
+
+        guard success else { return nil }
+
+        return pointer.pointee
+        // swiftlint:enable force_cast
     }
 
 }
